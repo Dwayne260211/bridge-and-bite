@@ -283,7 +283,11 @@
       gap: 1.5rem;
     }
     @media (min-width: 900px) {
-      .menu-layout { grid-template-columns: 1.25fr 0.75fr; align-items: start; }
+      .menu-layout { grid-template-columns: 1.15fr 0.85fr; align-items: start; gap: 1.75rem; }
+    }
+    .menu-posters { display: grid; gap: 1rem; }
+    @media (min-width: 900px) {
+      .menu-posters { position: sticky; top: 5rem; }
     }
     .menu-block {
       background: var(--panel);
@@ -540,7 +544,7 @@
           <h2>Menu</h2>
           <p>
             Burgers and sides from the truck. Prices in AUD.
-            Seasonal tweaks may apply — this board is the readable source of truth.
+            Seasonal tweaks may apply — the list below matches the poster.
           </p>
         </div>
         <div class="menu-layout">
@@ -601,10 +605,16 @@
             </div>
             <p class="menu-note">Book the truck for events · Training shifts available</p>
           </div>
-          <figure class="menu-mood">
-            <img src="assets/menu-board.png" alt="Bridge &amp; Bite Co. menu board mood visual — see HTML menu for correct item names and prices">
-            <figcaption>Menu board mood art · readable prices are listed on the left</figcaption>
-          </figure>
+          <div class="menu-posters">
+            <figure class="menu-mood" style="position:static; top:auto;">
+              <img src="assets/menu-board.png" alt="Bridge &amp; Bite Co. menu board — NEW MENU DROP with burgers and sides">
+              <figcaption>Menu board · NEW MENU DROP</figcaption>
+            </figure>
+            <figure class="menu-mood" style="position:static; top:auto;">
+              <img src="assets/menu-flyer.png" alt="Bridge &amp; Bite Co. menu flyer with burger photos and sides">
+              <figcaption>Menu flyer · same prices, photo layout</figcaption>
+            </figure>
+          </div>
         </div>
       </div>
     </section>
