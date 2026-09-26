@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bridge &amp; Bite — Good food. Real chances.</title>
+  <meta name="description" content="Bridge &amp; Bite is a Brisbane food truck: good food for the neighbourhood, and real training and job pathways for people building a fresh start.">
+  <meta name="theme-color" content="#1F5C5A">
+  <style>
+    :root {
+      --terracotta: #E07A3D;
+      --teal: #1F5C5A;
+      --cream: #F7F1E8;
+      --charcoal: #2B2B2B;
+      --white: #FFFFFF;
+      --teal-dark: #174746;
+      --radius: 14px;
+      --shadow: 0 10px 30px rgba(43, 43, 43, 0.08);
+      --max: 1080px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+      color: var(--charcoal);
+      background: var(--cream);
+      line-height: 1.55;
+      font-size: 1.05rem;
+    }
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: var(--teal); }
+    a:hover { color: var(--terracotta); }
+
+    .wrap {
+      width: min(100% - 2rem, var(--max));
+      margin-inline: auto;
+    }
+
+    /* Header */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(247, 241, 232, 0.94);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(31, 92, 90, 0.12);
+    }
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.65rem 0;
+    }
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      text-decoration: none;
+      color: inherit;
+      font-weight: 700;
+    }
+    .nav-brand img {
+      height: 42px;
+      width: auto;
+    }
+    .nav-brand span { color: var(--teal); letter-spacing: -0.02em; }
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem 1rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      font-size: 0.95rem;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--charcoal);
+      font-weight: 600;
+    }
+    .nav-links a:hover { color: var(--terracotta); }
+
+    /* Buttons */
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 1.25rem;
+      border-radius: 999px;
+      font-weight: 700;
+      text-decoration: none;
+      border: 2px solid transparent;
+      transition: background 0.15s, color 0.15s, border-color 0.15s;
+    }
+    .btn-primary {
+      background: var(--terracotta);
+      color: var(--white);
+    }
+    .btn-primary:hover {
+      background: #c96830;
+      color: var(--white);
+    }
+    .btn-secondary {
+      background: transparent;
+      color: var(--teal);
+      border-color: var(--teal);
+    }
+    .btn-secondary:hover {
+      background: var(--teal);
+      color: var(--white);
+    }
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1.25rem;
+    }
+
+    /* Hero */
+    .hero {
+      padding: 2.5rem 0 3rem;
+    }
+    .hero-grid {
+      display: grid;
+      gap: 2rem;
+      align-items: center;
+    }
+    @media (min-width: 800px) {
+      .hero-grid { grid-template-columns: 1.05fr 0.95fr; }
+    }
+    .eyebrow {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      margin-bottom: 0.5rem;
+    }
+    h1 {
+      font-size: clamp(2rem, 4.5vw, 3rem);
+      line-height: 1.15;
+      color: var(--teal);
+      margin: 0 0 0.75rem;
+      letter-spacing: -0.03em;
+    }
+    .tagline {
+      font-size: clamp(1.15rem, 2.5vw, 1.45rem);
+      font-weight: 700;
+      color: var(--charcoal);
+      margin: 0 0 1rem;
+    }
+    .lead {
+      margin: 0;
+      max-width: 38rem;
+      font-size: 1.08rem;
+    }
+    .hero-visual {
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      border: 1px solid rgba(31, 92, 90, 0.08);
+    }
+    .hero-visual img { width: 100%; }
+    .hero-caption {
+      padding: 0.75rem 1rem;
+      font-size: 0.88rem;
+      color: var(--teal);
+      font-weight: 600;
+    }
+
+    /* Sections */
+    section { padding: 3rem 0; }
+    section.alt {
+      background: var(--white);
+      border-block: 1px solid rgba(31, 92, 90, 0.08);
+    }
+    .section-head {
+      max-width: 40rem;
+      margin-bottom: 1.75rem;
+    }
+    h2 {
+      font-size: clamp(1.55rem, 3vw, 2rem);
+      color: var(--teal);
+      margin: 0 0 0.5rem;
+      letter-spacing: -0.02em;
+    }
+    .section-head p { margin: 0; }
+
+    /* Cards */
+    .cards {
+      display: grid;
+      gap: 1rem;
+    }
+    @media (min-width: 700px) {
+      .cards.three { grid-template-columns: repeat(3, 1fr); }
+    }
+    .card {
+      background: var(--cream);
+      border-radius: var(--radius);
+      padding: 1.35rem 1.25rem;
+      border: 1px solid rgba(31, 92, 90, 0.1);
+      box-shadow: var(--shadow);
+    }
+    section.alt .card { background: var(--cream); }
+    .card-icon {
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: var(--teal);
+      color: var(--white);
+      font-weight: 800;
+      font-size: 0.95rem;
+      margin-bottom: 0.85rem;
+    }
+    .card h3 {
+      margin: 0 0 0.4rem;
+      color: var(--charcoal);
+      font-size: 1.15rem;
+    }
+    .card p { margin: 0; font-size: 0.98rem; }
+
+    /* Mission split */
+    .split {
+      display: grid;
+      gap: 1.5rem;
+      align-items: center;
+    }
+    @media (min-width: 800px) {
+      .split { grid-template-columns: 1fr 1fr; gap: 2rem; }
+    }
+    .logo-panel {
+      background: var(--cream);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(31, 92, 90, 0.1);
+    }
+    .logo-panel img { width: min(100%, 420px); }
+    .mission-list {
+      margin: 1rem 0 0;
+      padding-left: 1.15rem;
+    }
+    .mission-list li { margin-bottom: 0.45rem; }
+
+    /* Menu */
+    .menu-layout {
+      display: grid;
+      gap: 1.5rem;
+    }
+    @media (min-width: 860px) {
+      .menu-layout { grid-template-columns: 1.1fr 0.9fr; align-items: start; }
+    }
+    .menu-cols {
+      display: grid;
+      gap: 1rem;
+    }
+    @media (min-width: 560px) {
+      .menu-cols { grid-template-columns: repeat(3, 1fr); }
+    }
+    .menu-col {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 1.1rem 1rem 1.2rem;
+      border-top: 4px solid var(--terracotta);
+      box-shadow: var(--shadow);
+    }
+    .menu-col h3 {
+      margin: 0 0 0.75rem;
+      color: var(--teal);
+      font-size: 1rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .menu-col ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .menu-col li {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.75rem;
+      padding: 0.4rem 0;
+      border-bottom: 1px dashed rgba(43, 43, 43, 0.15);
+      font-size: 0.95rem;
+    }
+    .menu-col li:last-child { border-bottom: 0; }
+    .price {
+      color: var(--terracotta);
+      font-weight: 700;
+      white-space:nowrap;
+    }
+    .menu-note {
+      font-size: 0.9rem;
+      color: var(--charcoal);
+      opacity: 0.85;
+      margin-top: 1rem;
+    }
+    .menu-board {
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(31, 92, 90, 0.1);
+      background: var(--white);
+    }
+
+    /* Contact CTA */
+    .cta {
+      background: var(--teal);
+      color: var(--white);
+      border-radius: calc(var(--radius) + 4px);
+      padding: 2rem 1.5rem;
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+    .cta h2 { color: var(--white); }
+    .cta p {
+      margin: 0.5rem auto 0;
+      max-width: 34rem;
+      opacity: 0.95;
+    }
+    .cta .btn-primary { margin-top: 1.25rem; }
+    .cta .btn-secondary {
+      border-color: var(--white);
+      color: var(--white);
+      margin-top: 1.25rem;
+    }
+    .cta .btn-secondary:hover {
+      background: var(--white);
+      color: var(--teal);
+    }
+    .cta-meta {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      opacity: 0.85;
+    }
+
+    /* Footer */
+    footer {
+      padding: 2rem 0 2.5rem;
+      font-size: 0.9rem;
+      color: var(--charcoal);
+    }
+    footer .fine {
+      opacity: 0.8;
+      margin-top: 0.5rem;
+      max-width: 40rem;
+    }
+    .swatches {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+    .swatch {
+      width: 2rem;
+      height: 2rem;
+      border-radius: 6px;
+      border: 1px solid rgba(43, 43, 43, 0.15);
+    }
+
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      .hero { padding-top: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="nav-brand" href="#top">
+        <img src="logo-primary.png" alt="Bridge &amp; Bite logo">
+        <span class="visually-hidden" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);">Bridge &amp; Bite</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#how">How it works</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <p class="eyebrow">Brisbane · QLD food truck</p>
+          <h1>Bridge &amp; Bite</h1>
+          <p class="tagline">Good food. Real chances.</p>
+          <p class="lead">
+            We’re a neighbourhood food truck that feeds people and opens doors —
+            training and job pathways for people from disadvantaged circumstances
+            who are building a fresh start. No pity pitch. Just honest food and real work.
+          </p>
+          <div class="btn-row">
+            <a class="btn btn-primary" href="mailto:admin@bridge-bite-co.com">Get in touch</a>
+            <a class="btn btn-secondary" href="#how">How it works</a>
+          </div>
+        </div>
+        <figure class="hero-visual">
+          <img src="truck-wrap.png" alt="Bridge &amp; Bite food truck wrap concept: cream body with teal and terracotta graphics, tagline Good food. Real chances.">
+          <figcaption class="hero-caption">Truck wrap concept · Brisbane streets</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="alt" id="about">
+      <div class="wrap split">
+        <div class="logo-panel">
+          <img src="logo-primary.png" alt="Bridge &amp; Bite primary logo on cream">
+        </div>
+        <div>
+          <div class="section-head">
+            <h2>Food that feeds. Work that bridges.</h2>
+            <p>
+              <strong>Bridge</strong> is the pathway into skills, shifts, and community.
+              <strong>Bite</strong> is good food, served with care.
+              Together: feed the neighbourhood and open doors — one service at a time.
+            </p>
+          </div>
+          <ul class="mission-list">
+            <li>Warm, practical, dignity-first — never a pity story.</li>
+            <li>Honest about both sides of the business: the menu and the training floor.</li>
+            <li>Based in Brisbane / Queensland under BRIDGE&amp;BITE.CO PTY LTD.</li>
+          </ul>
+          <p style="margin-top:1rem;font-size:0.95rem;opacity:0.85;">
+            Alt lines we use: “Feed the neighbourhood. Build careers.” ·
+            “A bridge to work, one service at a time.”
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="how">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>How it works</h2>
+          <p>Three simple ways to be part of Bridge &amp; Bite.</p>
+        </div>
+        <div class="cards three">
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">1</div>
+            <h3>Eat</h3>
+            <p>
+              Find the truck, grab a roll or bowl, and taste the neighbourhood side of the brand.
+              Good food comes first — that’s how we earn the right to tell the rest of the story.
+            </p>
+          </article>
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">2</div>
+            <h3>Hire the truck</h3>
+            <p>
+              Book us for events, markets, or workplace catering.
+              You’ll get solid food service — and a clear, honest story about training and jobs,
+              without corporate CSR fluff.
+            </p>
+          </article>
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">3</div>
+            <h3>Join as a trainee</h3>
+            <p>
+              Interested in kitchen and service skills while building a fresh start?
+              Ask about training shifts. We talk dignity and real work — not slogans.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="alt" id="menu">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Example menu</h2>
+          <p>
+            Starter board only — items and prices will change with seasons and suppliers.
+            Not a locked commercial menu yet.
+          </p>
+        </div>
+        <div class="menu-layout">
+          <div>
+            <div class="menu-cols">
+              <div class="menu-col">
+                <h3>Mains</h3>
+                <ul>
+                  <li><span>Pulled pork roll</span><span class="price">$12</span></li>
+                  <li><span>Chicken burger</span><span class="price">$12</span></li>
+                  <li><span>Haloumi wrap</span><span class="price">$11</span></li>
+                  <li><span>Loaded fries</span><span class="price">$10</span></li>
+                  <li><span>Veggie bowl</span><span class="price">$11</span></li>
+                </ul>
+              </div>
+              <div class="menu-col">
+                <h3>Sides</h3>
+                <ul>
+                  <li><span>Crispy potato wedges</span><span class="price">$6</span></li>
+                  <li><span>Onion rings</span><span class="price">$6</span></li>
+                  <li><span>Simple green salad</span><span class="price">$5</span></li>
+                  <li><span>Garlic aioli (small)</span><span class="price">$2</span></li>
+                  <li><span>Slaw (small)</span><span class="price">$3</span></li>
+                </ul>
+              </div>
+              <div class="menu-col">
+                <h3>Drinks</h3>
+                <ul>
+                  <li><span>Iced coffee</span><span class="price">$5</span></li>
+                  <li><span>Lemonade</span><span class="price">$4</span></li>
+                  <li><span>Iced tea</span><span class="price">$4</span></li>
+                  <li><span>Soft serve</span><span class="price">$5</span></li>
+                  <li><span>Bottled water</span><span class="price">$3</span></li>
+                </ul>
+              </div>
+            </div>
+            <p class="menu-note">Hire us for events · Training shifts available</p>
+          </div>
+          <figure class="menu-board">
+            <img src="menu-board.png" alt="Bridge &amp; Bite example menu board with mains, sides, and drinks">
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="wrap">
+        <div class="cta">
+          <h2>Let’s talk food, events, or training</h2>
+          <p>
+            Website and socials are still coming online.
+            For bookings, trainee enquiries, or general questions, email us.
+          </p>
+          <div class="btn-row" style="justify-content:center;">
+            <a class="btn btn-primary" href="mailto:admin@bridge-bite-co.com">admin@bridge-bite-co.com</a>
+          </div>
+          <p class="cta-meta">BRIDGE&amp;BITE.CO PTY LTD · Brisbane / QLD</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <strong>Bridge &amp; Bite</strong> — Good food. Real chances.
+      <p class="fine">
+        Brand kit starter for BRIDGE&amp;BITE.CO PTY LTD (ACN 692 080 792).
+        Hopewick is a separate product under the same company and is not part of this food-truck site.
+        No invented impact stats or awards. Colours: terracotta #E07A3D · teal #1F5C5A · cream #F7F1E8 · charcoal #2B2B2B.
+      </p>
+      <div class="swatches" aria-hidden="true">
+        <span class="swatch" style="background:#E07A3D" title="Terracotta"></span>
+        <span class="swatch" style="background:#1F5C5A" title="Deep teal"></span>
+        <span class="swatch" style="background:#F7F1E8" title="Cream"></span>
+        <span class="swatch" style="background:#2B2B2B" title="Charcoal"></span>
+        <span class="swatch" style="background:#FFFFFF" title="White"></span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
